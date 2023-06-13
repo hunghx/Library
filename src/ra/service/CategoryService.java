@@ -9,6 +9,15 @@ public class CategoryService {
     public Category[] getAll(){
         return listCategories;
     }
+
+    public CategoryService() {
+        listCategories[0] = new Category(1,"Thiếu nhi","từ 5-12 tuổi",true);
+        listCategories[1] = new Category(2,"Tiểu thuyết","trinh thám",true);
+        listCategories[2] = new Category(3,"Khoa học","thiên văn học",true);
+        listCategories[3] = new Category(4,"Văn hóa","ẩm thực các quốc gia",true);
+        size = 4;
+    }
+
     public int getSize(){
         return size;
     }

@@ -8,7 +8,7 @@ public class Book {
     private  String authorName;
     private int quantity;
     private int totalPage;
-    private  boolean status;
+    private  boolean status = true;
 
     public Book() {
     }

@@ -129,6 +129,15 @@ public class Library {
                     // thêm mới
                     addNewCategory();
                     break;
+                case 3:
+                    // update
+                    updateCategory();
+                    break;
+
+                case 4:
+                    // xóa
+                    deleteCategory();
+                    break;
                 case 5:
                     break;
                 default:
@@ -170,6 +179,27 @@ public class Library {
             // lưu nó vào listcategory
             categoryController.save(newCategory);
         }
+    }
+    public static  void  updateCategory(){
+        System.out.println(" hãy nhập vào id của danh mục muốnn sửa");
+        int idEdit = Config.scanner().nextInt();
+        Category categoryEdit = categoryController.findById(idEdit);
+        if (categoryEdit!= null){
+            // có ton tại , cho phép chỉnh sửa
+            System.out.println("nhập tên danh mục mới");
+            categoryEdit.setName(Config.scanner().nextLine());
+            System.out.println("nhập mô tả mới");
+            categoryEdit.setDescriptions(Config.scanner().nextLine());
+            categoryController.save(categoryEdit);
+        }else {
+            System.err.println("Id không tồn tại");
+        }
+    }
+    public static void deleteCategory(){
+        System.out.println(" hãy nhập vào id của danh mục muốn xóa");
+        int idDel = Config.scanner().nextInt();
+        // cho phép xóa
+        categoryController.delete(idDel);
     }
 
 
